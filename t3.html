@@ -1,0 +1,38 @@
+<!DOCTYPE html><html><head><meta name="viewport"content="width=device-width,initial-scale=1,
+maximum-scale=1,user-scalable=no"><style>body{margin:0;background:#8ba58f;overflow:hidden}
+canvas{position:fixed;top:0;left:0;filter:url('#f');image-rendering:pixelated}#d{position:fixed;
+top:50%;left:50%;transform:translate(-50%,-50%);font:bold 2rem monospace;color:#243342;z-index:100;
+pointer-events:none}</style><body><div id="d">kla.as</div><canvas id="m"></canvas>
+<canvas id="s"></canvas><svg style="display:none"><filter id="f"><feColorMatrix values="0.3 0 0 0 0 
+0 0.5 0 0 0 0 0 0.2 0 0 0 0 0 0.7 0"/></filter></svg><script>
+let w=window,p=[],t=0,n=[],f={x:0,y:0},d='r',D='r',q=12,
+a=b=>b?`rgba(51,68,51,${b*.4})`:`rgba(51,68,51,${b})`,
+c,x,y,g;function init(){c=document.getElementById('m');y=document.getElementById('s');
+if(c&&y){x=c.getContext('2d');g=y.getContext('2d');u();i();I();L();setInterval(S,100)}}
+class P{constructor(){this.r()}r(){this.a=Math.random()*Math.PI*2;
+this.R=Math.random()*Math.min(c.width,c.height)*.5;this.z=Math.random()*2e3;
+this.c='··∙∙●'[~~(Math.random()*5)];this.x=c.width/2+Math.cos(this.a)*this.R;
+this.y=c.height/2+Math.sin(this.a)*this.R}u(){this.z-=3;if(this.z<1){this.r();this.z=2e3}
+let C=c.width/2,Y=c.height/2,P=800,s=P/(P+this.z),r=this.R*(1.5+Math.cos(t*5e-4+this.z*.005));
+this.X=C+(Math.cos(this.a+t*1e-4)*r)*s;this.Y=Y+(Math.sin(this.a+t*1e-4)*r)*s;
+this.S=Math.max(1,15*s);this.o=Math.min(.7,s*.8)}v(){x.font=this.S+'px monospace';
+x.fillStyle=a(this.o);x.fillText(this.c,this.X,this.Y)}}
+let u=_=>{c.width=w.innerWidth;c.height=w.innerHeight;y.width=c.width;y.height=c.height},
+i=_=>{p=[];for(let i=0;i<c.width*c.height/4e3;i++)p.push(new P)},
+I=_=>{n=[{x:5,y:5},{x:4,y:5},{x:3,y:5}];F()},
+F=_=>{let W=~~(y.width/q),H=~~(y.height/q);do{f.x=~~(Math.random()*W);
+f.y=~~(Math.random()*H)}while(n.some(s=>s.x==f.x&&s.y==f.y))},
+C=r=>{let h={...n[0]},W=~~(y.width/q),H=~~(y.height/q);switch(r){case'u':h.y--;break;
+case'd':h.y++;break;case'l':h.x--;break;case'r':h.x++;break}
+h.x=h.x<0?W-1:h.x>=W?0:h.x;h.y=h.y<0?H-1:h.y>=H?0:h.y;return n.some(s=>s.x==h.x&&s.y==h.y)},
+U=_=>{d=D;let h={...n[0]},W=~~(y.width/q),H=~~(y.height/q);switch(d){case'u':h.y--;break;
+case'd':h.y++;break;case'l':h.x--;break;case'r':h.x++;break}
+h.x=h.x<0?W-1:h.x>=W?0:h.x;h.y=h.y<0?H-1:h.y>=H?0:h.y;if(C(d)){I();return}
+n.unshift(h);h.x==f.x&&h.y==f.y?F():n.pop()},
+A=_=>{let h=n[0];f.x<h.x&&!C('l')?D='l':f.x>h.x&&!C('r')?D='r':f.y<h.y&&!C('u')?D='u':
+f.y>h.y&&!C('d')&&(D='d');if(C(D))for(let d of['u','r','d','l'])if(!C(d)){D=d;break}},
+S=_=>{g.clearRect(0,0,y.width,y.height);n.forEach((s,i)=>{g.fillStyle=a(.9);
+g.fillRect(s.x*q,s.y*q,q-1,q-1)});g.fillStyle=a(1);g.fillRect(f.x*q,f.y*q,q-1,q-1);A();U()},
+L=_=>{t++;x.fillStyle='rgba(139,165,143,0.2)';x.fillRect(0,0,c.width,c.height);
+p.forEach(p=>{p.u();p.v()});requestAnimationFrame(L)};
+w.addEventListener('resize',_=>{u();i()});w.addEventListener('load',init);</script></html>
