@@ -1,15 +1,15 @@
 #EXTM3U
-#EXTINF:-1 group-title="-" tvg-chno="0",000 Telearuba
+#EXTINF:-1,001 Telearuba
 https://backend-server-dot-telearuba-app.appspot.com/media/livestream13/playlist.m3u8
-#EXTINF:-1 tvg-chno="157",157 Latina HD
+#EXTINF:-1,002 Latina HD
 http://190.119.40.74:8200/play/a0hv/index.m3u8
-#EXTINF:-1 tvg-chno="139",139 GOL PERU
-http://190.119.40.74:8200/play/a0ng/index.m3u8
-#EXTINF:-1 tvg-chno="94",094 America TV HD
-http://190.119.40.74:8200/play/a0hu/index.m3u8
-#EXTINF:-1 group-title="-" tvg-chno="84",084 TV PERU
+#EXTINF:-1,003 TV PERU
 http://179.1.147.210:5000/play/a04b
-#EXTINF:-1 tvg-chno="154",154 KARIBEÑA
+#EXTINF:-1,004 KARIBEÑA
 http://190.119.40.74:8200/play/a0s7/index.m3u8
-#EXTINF:-1 tvg-chno="95",095 Animal Planet HD
+#EXTINF:-1,005 GOL PERU
+http://190.119.40.74:8200/play/a0ng/index.m3u8
+#EXTINF:-1,006 America TV HD
+http://190.119.40.74:8200/play/a0hu/index.m3u8
+#EXTINF:-1,007 Animal Planet HD
 http://190.119.40.74:8200/play/a0ki/index.m3u8
